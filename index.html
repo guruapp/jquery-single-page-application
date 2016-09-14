@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Single web application</title>
+<style type="text/css">
+
+ul {
+    display: block;
+    padding: 0 0 1.1em;
+}
+li {
+    background: #999;
+    float: left;
+    clear: none;
+}
+li a {
+    color: #fff;
+	padding: 0 1em;
+    text-decoration: none;
+}
+.box {
+	border: 1px solid #000;
+    padding: 1em;
+}
+.selected {
+    background: #666;
+}
+
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#one').attr('class', 'selected');
+    $('.box > div:not(#oneArea)').hide();
+    $('#menu a').click(function() {
+        $('.box > div').hide();
+        var id = $(this).attr('id');
+        $('#' + id + 'Area').show();
+        $('#menu a').removeAttr('class');
+        $('#' + id).attr('class', 'selected');
+        return false;
+    });
+});
+
+</script>
+</head>
+<body>
+<ul id="menu">
+    <li><a href="" id="one">One</a></li>
+    <li><a href="" id="two">Two</a></li>
+    <li><a href="" id="three">Three</a></li>
+    <li><a href="" id="four">Four</a></li>
+</ul>
+
+<div class="box">
+	<div id="oneArea">
+		<h2>Page 1</h2>
+		<p>The first page</p>
+	</div>
+	<div id="twoArea">
+		<h2>Page 2</h2>
+		<p>The second page.</p>
+	</div>
+	<div id="threeArea">
+		<h2>Page 3</h2>
+		<p>The third page.</p>
+	</div>
+	<div id="fourArea">
+		<h2>Page 4</h2>
+		<p>The fourth page.</p>
+	</div>
+</div>
+
+
+</body>
+</html>
